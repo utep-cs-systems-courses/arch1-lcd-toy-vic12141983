@@ -1,0 +1,19 @@
+  /home/student/arch1-lcd-toy-vic12141983/lcdLib:
+  total used in directory 96 available 16718320
+  drwxr-xr-x 1 student users  422 Apr 12 09:17 .
+  drwxr-xr-x 1 student users  210 Apr 12 09:09 ..
+  -rw-r--r-- 1 student users  134 Apr 12 00:39 clocksTimer.h
+  -rw-r--r-- 1 student users 9677 Apr 12 00:29 font-11x16.c
+  -rw-r--r-- 1 student users 4507 Apr 12 00:29 font-5x7.c
+  -rw-r--r-- 1 student users 8154 Apr 12 00:29 font-8x12.c
+  -rw-r--r-- 1 student users 1249 Apr 12 00:41 lcddemo2.c
+  -rw-r--r-- 1 student users  886 Apr 12 00:35 lcddemo.c
+  -rw-r--r-- 1 student users 3459 Apr 12 00:29 lcddraw2.c
+  -rw-r--r-- 1 student users 2984 Apr 12 00:29 lcddraw.c
+  -rw-r--r-- 1 student users 1805 Apr 12 00:29 lcddraw.h
+  -rw-r--r-- 1 student users  140 Apr 12 00:29 lcdtypes.h
+  -rw-r--r-- 1 student users 3897 Apr 12 00:29 lcdutils.c
+  -rw-r--r-- 1 student users 3085 Apr 12 00:29 lcdutils.h
+  -rw-r--r-- 1 student users  114 Apr 12 00:36 libTimer.h
+  -rw-r--r-- 1 student users  812 Apr 12 00:29 Makefile
+  -rw-r--r-- 1 student users 1708 Apr 12 00:29 README.md
