@@ -23,9 +23,7 @@ void shape_1(){
   for (int r =0;r<=50;r++){
       for (int c = 0;c <=50+r; c++){
 	drawPixel(offset_c+c,60,COLOR_BLACK);
-	drawPixel(offset_c+r,50,COLOR_BLACK);
-	drawPixel(offset_c+r,60,COLOR_RED);
-	drawPixel(offset_r+c,70,COLOR_RED);
+	
       }
     }    
   }
@@ -66,7 +64,7 @@ void main(){
   or_sr(0x8);	              /**< GIE (enable interrupts) */
   
   clearScreen(COLOR_BLUE);
-  shape_1();
+  
   while (1) {			/* forever */
     if (redrawScreen) {
       redrawScreen = 0;

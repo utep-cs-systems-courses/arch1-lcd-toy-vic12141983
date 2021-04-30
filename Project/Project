@@ -1,7 +1,0 @@
-  /home/student/Documents/arch1-lcd-toy-vic12141983/Project:
-  total used in directory 16 available 16706528
-  drwxr-xr-x 1 student users   74 Apr 18 19:34 .
-  drwxr-xr-x 1 student users  224 Apr 18 19:48 ..
-  -rw-r--r-- 1 student users  472 Apr 16 12:41 Makefile
-  -rw-r--r-- 1 student users 2407 Apr 16 12:58 wake.c
-  -rw-r--r-- 1 student users 1004 Apr 16 12:34 wdt_handler.s
