@@ -50,8 +50,8 @@ void main()
   while (1) {			/* forever */
     if (redrawScreen) {
       redrawScreen = 0;
-      drawString8x12(helloCol,20, "hello", COLOR_BLUE, COLOR_BLUE);
-      drawString8x12(nextHelloCol,20, "hello", fontFgColor, COLOR_BLUE);
+      drawString5x7(helloCol,20, "hello", COLOR_BLUE, COLOR_BLUE);
+      drawString5x7(nextHelloCol,20, "hello", fontFgColor, COLOR_BLACK);
       helloCol = nextHelloCol;      
     }
     P1OUT &= ~LED_GREEN;	/* green off */
