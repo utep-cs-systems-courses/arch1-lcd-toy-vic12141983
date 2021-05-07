@@ -56,7 +56,7 @@ void main(){
   P1DIR |= LED_GREEN;		/**< Green led on when CPU on */		
   P1OUT |= LED_GREEN;
   configureClocks();
-  shape_1(50,50,80,60);
+
   lcd_init();
   
   u_char width = screenWidth, height = screenHeight; //LCD 
@@ -66,21 +66,20 @@ void main(){
   or_sr(0x8);	              /**< GIE (enable interrupts) */
   /* clearScreen(COLOR_BLUE);*/
   
-    while (1) {			/* forever*/ 
-    shape_1(40,80,10,30);
-    if (redrawScreen) {
+    while (1) {
+      shape_1(); 
+    }
+    /*if (redrawScreen) {
       redrawScreen = 0;
-      drawString5x7(helloCol,20, "hello", COLOR_BLUE, COLOR_BLUE);
+      drawString5x7(helloCol,20, "hello", COLOR_BLACK, COLOR_BLACK);
       drawString5x7(nextHelloCol,20, "hello", fontFgColor, COLOR_BLUE);
       helloCol = nextHelloCol;
-    
       }
-    
-    P1OUT &= ~LED_GREEN;	/* green off*/ 
-    or_sr(0x10);		/**< CPU OFF **/
-    P1OUT |= LED_GREEN;		/* green on*/ 
+        P1OUT &= ~LED_GREEN;	/* green off*/ 
+    // or_sr(0x10);		/**< CPU OFF **/
+    //P1OUT |= LED_GREEN;		/* green on*/ 
  
- }
+  
 }
 
     
