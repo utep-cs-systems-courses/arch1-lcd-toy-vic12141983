@@ -12,13 +12,20 @@ main()
 {
   configureClocks();
   lcd_init();
-  u_char width = screenWidth, height = screenHeight;
+  shape_2();
+  int count =0;
+  while(count <5){
+   shape_1();
+   shape_2();
+   count++;
+   }
+    u_char width = screenWidth, height = screenHeight;
 
   clearScreen(COLOR_BLUE);
 
-  
+ 
 
-  fillRectangle(30,30, 60, 60, COLOR_ORANGE);
+  // fillRectangle(30,30, 60, 60, COLOR_ORANGE);
   void drawChar5x7(u_char rcol, u_char rrow, char c, 
      u_int fgColorBGR, u_int bgColorBGR) 
 {
@@ -38,6 +45,7 @@ main()
     bit <<= 1;
     row++;
   }
+  
 }
   
 }

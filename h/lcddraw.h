@@ -5,12 +5,19 @@
 #ifndef lcddraw_included
 #define lcddraw_included
 
+/** 
+ Draw shape 
+ **/
+//void drawshape_1(u_char rows, u_char cols, u_char offset_r, u_char offset_c);
 /** Draw single pixel at col, row 
  *
  *  \param col Column to draw to
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
+void shape_1();
+//Shape_2
+void shape_2();
 void drawPixel(u_char col, u_char row, u_int colorBGR);
 
 /** Fill rectangle
@@ -48,6 +55,15 @@ void drawString5x7(u_char col, u_char row, char *string,
  *  Adapted from RobG's EduKit
  */
 void drawChar5x7(u_char col, u_char row, char c, 
+		 u_int fgColorBGR, u_int bgColorBGR);
+
+void drawString8x12(u_char col, u_char row, char *string, 
+		   u_int fgColorBGR, u_int bgColorBGR);
+
+/** 5x7 font - this function draws background pixels
+ *  Adapted from RobG's EduKit
+ */
+void drawChar8x12(u_char col, u_char row, char c, 
 		 u_int fgColorBGR, u_int bgColorBGR);
 
 /** Draw rectangle outline
