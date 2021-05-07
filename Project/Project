@@ -1,0 +1,17 @@
+  /home/student/Documents/arch1-lcd-toy-vic12141983/Project:
+  total used in directory 44 available 16774480
+  drwxr-xr-x 1 student users  300 May  7 17:15 .
+  drwxr-xr-x 1 student users  224 May  4 23:47 ..
+  -rw-r--r-- 1 student users  684 May  7 13:53 buzzer.c
+  -rw-r--r-- 1 student users  127 May  7 15:39 buzzer.h
+  -rw-r--r-- 1 student users    0 May  7 13:55 led.c
+  -rw-r--r-- 1 student users  321 May  7 11:34 led.h
+  -rw-r--r-- 1 student users  719 May  7 16:16 Makefile
+  -rw-r--r-- 1 student users    0 May  7 13:57 p1_interrupt_handler.c
+  -rw-r--r-- 1 student users  287 May  7 17:14 stateMachines.c
+  -rw-r--r-- 1 student users  165 May  7 16:32 stateMachines.h
+  -rw-r--r-- 1 student users 1039 May  4 23:47 switches.c
+  -rw-r--r-- 1 student users 1089 May  4 23:47 switches.h
+  -rw-r--r-- 1 student users  459 May  7 16:57 wake.c
+  -rw-r--r-- 1 student users  343 May  7 16:56 wdInterruptHandler.c
+  -rw-r--r-- 1 student users 1004 May  4 23:47 wdt_handler.s
