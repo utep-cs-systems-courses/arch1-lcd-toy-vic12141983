@@ -47,7 +47,8 @@ void main()
   or_sr(0x8);	              /**< GIE (enable interrupts) */
   
   clearScreen(COLOR_BLUE);
-  while (1) {			/* forever */
+  while (1) {
+    shape_1();
     if (redrawScreen) {
       redrawScreen = 0;
       drawString5x7(helloCol,20, "hello", COLOR_BLUE, COLOR_BLUE);
