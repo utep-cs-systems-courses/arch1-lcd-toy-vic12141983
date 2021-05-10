@@ -12,11 +12,11 @@ main()
 {
   configureClocks();
   lcd_init();
-  shape_2();
+  shape2();
   int count =0;
   while(count <5){
-   shape_1();
-   shape_2();
+   shape1();
+   shape2();
    count++;
    }
     u_char width = screenWidth, height = screenHeight;

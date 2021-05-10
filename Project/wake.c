@@ -11,48 +11,60 @@ short redrawScreen = 1;
 u_int fontFgColor = COLOR_GREEN;
 u_char helloCol = 10;
 u_char nextHelloCol =10;
-signed char helloVelocity = 1;
+signed char helloVelocity = 1; // move one pixel to right
 
 void wdt_c_handler()
 {
-  static int secCount = 0;
-  static int dsecCount = 0;
+  static int secCount = 0; // timer 
+  static int dsecCount = 0;//
   dsecCount++;
   secCount ++;
-  if (secCount == 250) {		/* once/sec */
+  if (secCount == 250) { // reset counter 
     secCount = 0;
-    fontFgColor = (fontFgColor == COLOR_GREEN) ? COLOR_BLACK : COLOR_GREEN;
-    redrawScreen = 1;
+    fontFgColor = (fontFgColor == COLOR_GREEN) ? COLOR_BLACK : COLOR_GREEN; // change font Color
+    redrawScreen = 1; // set redrawScreen to meanin screen was redrawn 
   }
-  if (dsecCount ==25){
+  if (dsecCount ==25){ // if 25 reset counter
     dsecCount =0;
-    nextHelloCol += helloVelocity;
-    if ( nextHelloCol > 30 || nextHelloCol <=10) {
+    nextHelloCol += helloVelocity; // Add Variables
+    if ( nextHelloCol > 30 || nextHelloCol <=10) {// reverse direction
       helloVelocity  = -helloVelocity;
       nextHelloCol += helloVelocity;
     }
-    redrawScreen =1;
+    redrawScreen =1; // screen redrawn. (interrupt)
   }
 }
+/*void change_to_triangle(){
+  static char state;
+  if(redrawScreecn){
+    redrawScreen = 0;
+    switch(state){
+    case 0:
+    }
+    }*/
+  
 void advance(){
   u_int switches  = p2sw_read();
   char str[5];
-
-  str[0] = (switches & (1<<0)) ? 0 :1;
+  // Corresponding switches 1,2,3,4
+  str[0] = (switches & (1<<0)) ? 0 :1; 
   str[1] = (switches & (1<<1)) ? 0 :1;
   str[2] = (switches & (1<<2)) ? 0 :1;
   str[3] = (switches & (1<<3)) ? 0 :1;
+  // If button 1 is pressed then shape_1() is drawn to the screen
+  // After it is released the Screen is cleared. 
   if (str[0]){
-    shape_1();
+    shape1();  
   }
+  
   else if(str[1]){
-    shape_2();
+    shape2();
   }
   else if(str[2]){
-    shape_2();
+   shape3();
   }
   else if(str[3]){
-    shape_2();
+    shape4();
   }
   else {
     clearScreen(COLOR_BLACK);
@@ -70,15 +82,16 @@ void main(){
   
   enableWDTInterrupts();      /**< enable periodic interrupt */
   or_sr(0x8);	              /**< GIE (enable interrupts) */
-  clearScreen(COLOR_BLUE);
+  clearScreen(COLOR_BLACK);
   
     while (1) {
-     advance();   
+      assy_change();
+      advance();
     
-    if (redrawScreen) {
-      redrawScreen = 0;
-      drawString5x7(helloCol,20, "hello", COLOR_BLACK, COLOR_BLACK);
-      drawString5x7(nextHelloCol,20, "hello", fontFgColor, COLOR_BLUE);
+     if (redrawScreen) {    /*If screen is set to 1 */          
+      redrawScreen = 0;     /* set it to 0 or off */
+      drawString11x16(helloCol,20, "WELCOME", COLOR_BLACK, COLOR_BLACK);
+      drawString11x16(nextHelloCol,20, "WELCOME", fontFgColor, COLOR_BLACK);
       helloCol = nextHelloCol;
       }
         P1OUT &= ~LED_GREEN;	/* green off*/ 

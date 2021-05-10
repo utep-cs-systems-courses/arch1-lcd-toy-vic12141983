@@ -15,9 +15,12 @@
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
-void shape_1();
+void shape1();
 //Shape_2
-void shape_2();
+void shape2();
+void shape3();
+void shape4();
+void assy_change();
 void drawPixel(u_char col, u_char row, u_int colorBGR);
 
 /** Fill rectangle
@@ -57,14 +60,20 @@ void drawString5x7(u_char col, u_char row, char *string,
 void drawChar5x7(u_char col, u_char row, char c, 
 		 u_int fgColorBGR, u_int bgColorBGR);
 
+void drawChar8x12(u_char col, u_char row, char c, 
+		 u_int fgColorBGR, u_int bgColorBGR);
+
 void drawString8x12(u_char col, u_char row, char *string, 
 		   u_int fgColorBGR, u_int bgColorBGR);
 
 /** 5x7 font - this function draws background pixels
  *  Adapted from RobG's EduKit
  */
-void drawChar8x12(u_char col, u_char row, char c, 
-		 u_int fgColorBGR, u_int bgColorBGR);
+ 
+void drawChar11x16(u_char col, u_char row, char c, u_int fgColorBGR, u_int bgColorBGR);
+
+void drawString11x16(u_char col, u_char row, char *string, 
+		   u_int fgColorBGR, u_int bgColorBGR);
 
 /** Draw rectangle outline
  *  

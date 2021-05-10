@@ -11,25 +11,38 @@
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
+
+void assy_change(){
+  short screenOn = 1;
+  static char state = 0;  
+    switch(state){
+    case 0: shape1(); state++; break;
+    case 1: shape2(); state++; break; 
+    case 2: shape3(); state++; break;
+    case 3: shape4(); state++; break;
+    default: state  = 0;
+    }
+  
+}
 void drawPixel(u_char col, u_char row, u_int colorBGR) 
 {
   lcd_setArea(col, row, col, row);
   lcd_writeColor(colorBGR);
 }
-void shape_1()
+void shape1()
   
 {
   u_char offset_r = 80, offset_c = 60;
   for( int r = 0; r<=50; r++){
     for (int c = 0; c <=50-r; c++){
       drawPixel(offset_c-c,offset_r+r,COLOR_BLACK);
-      drawPixel(offset_c+c,offset_r+r,COLOR_GREEN);
-      drawPixel(offset_c,offset_r,COLOR_ORANGE);
+      drawPixel(offset_c+c,offset_r+r,COLOR_BLUE);
+      drawPixel(offset_c,offset_r,COLOR_BLUE);
     }
   }
   
 }
-void shape_2(){
+void shape2(){
   u_char offset_r = 80, offset_c = 60;
   for ( int r =0; r<=50;r++){
     for ( int c =0; c <=50+r; c++){
@@ -37,6 +50,24 @@ void shape_2(){
       drawPixel(offset_c-c,offset_r-r,COLOR_RED);
     }
   }
+}
+void shape3(){
+  u_char offset_r =50, offset_c = 50;
+  for (int r =0; r<=50; r++){
+    for ( int c = 0; c <=50; c++){
+      drawPixel(offset_c,offset_r,COLOR_BLUE);
+    }
+  }
+}
+void shape4(){
+  u_char offset_r =50, offset_c = 50;
+  for (int r =0; r<=40; r++){
+    for ( int c = 0; c <r/2; c++){
+      drawPixel(offset_c-c,offset_r+r,COLOR_BLUE);
+      drawPixel(offset_c-c,offset_r+r,COLOR_BLUE);
+     }
+  }
+  
 }
 /** Fill rectangle
  *
@@ -92,16 +123,16 @@ void drawChar5x7(u_char rcol, u_char rrow, char c,
     row++;
   }
 }
-void drawChar8x12(u_char rcol, u_char rrow, char c, 
+/*void drawChar8x12(u_int rcol, u_int rrow, int c, 
      u_int fgColorBGR, u_int bgColorBGR) 
 {
-  u_char col = 0;
-  u_char row = 0;
-  u_char bit = 0x01;
-  u_char oc = c - 0x20;
+  u_int col = 0;
+  u_int row = 0;
+  u_int bit = 0x01;
+  u_int oc = c - 0x20;
 
-  lcd_setArea(rcol, rrow, rcol + 7, rrow + 12); /* relative to requested col/row */
-  while (row < 13) {
+  lcd_setArea(rcol, rrow, rcol + 7, rrow + 10); /
+  while (row < 12) {
     while (col < 8) {
       u_int colorBGR = (font_8x12[oc][col] & bit) ? fgColorBGR : bgColorBGR;
       lcd_writeColor(colorBGR);
@@ -111,7 +142,7 @@ void drawChar8x12(u_char rcol, u_char rrow, char c,
     bit <<= 1;
     row++;
   }
-}
+  }*/
 
 
 /** Draw string at col,row
@@ -135,15 +166,45 @@ void drawString5x7(u_char col, u_char row, char *string,
     cols += 6;
   }
 }
- void drawString8x12(u_char col, u_char row, char *string,
+/* void drawString8x12(u_char col, u_char row, char *string,
 		u_int fgColorBGR, u_int bgColorBGR)
 {
   u_char cols = col;
   while (*string) {
     drawChar8x12(cols, row, *string++, fgColorBGR, bgColorBGR);
-    cols += 13;
+    cols += 8;
+  }
+}*/
+void drawChar11x16(u_char rcol, u_char rrow, char c, 
+     u_int fgColorBGR, u_int bgColorBGR) 
+{
+  u_int col = 0;
+  u_int row = 0;
+  u_int bit = 0x01;
+  u_int oc = c - 0x20;
+
+  lcd_setArea(rcol, rrow, rcol + 10, rrow + 15); /* relative to requested col/row */
+  while (row < 16) {
+    while (col < 11) {
+      u_int colorBGR = (font_11x16[oc][col] & bit) ? fgColorBGR : bgColorBGR;
+      lcd_writeColor(colorBGR);
+      col++;
+    }
+    col = 0;
+    bit <<= 1;
+    row++;
   }
 }
+void drawString11x16(u_char col, u_char row, char *string,
+		u_int fgColorBGR, u_int bgColorBGR)
+{
+  u_char cols = col;
+  while (*string) {
+    drawChar11x16(cols, row, *string++, fgColorBGR, bgColorBGR);
+    cols += 9;
+  }
+}
+
 
 
 /** Draw rectangle outline
