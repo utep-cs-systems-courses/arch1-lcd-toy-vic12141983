@@ -16,12 +16,13 @@ state:
 
 jt:
 
-	.word default
+	
 	.word case0
 	.word case1
 	.word case2
 	.word case3
-	.global assy_change()
+	.word default		;not needed
+	.global assy_change
 
 
 
@@ -83,4 +84,4 @@ default:
 
 out:
 
-	pop r0			; return 
+	pop r0			;pop into R0. From the stack to r0.
